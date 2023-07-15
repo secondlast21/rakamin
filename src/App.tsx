@@ -1,13 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import Todo from './pages/Todo'
+import RequireAuth from './components/Auth'
+import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom'
 
-function App() {
+const App = () => {
   return (
-      <h1 className="text-3xl font-bold underline text-center">
-        Hello world!
-      </h1>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path='/'
+          element={<Navigate to='/todo' />}
+        />
+        <Route
+          path='/'
+          element={<Outlet />}
+        >
+          <Route
+            path='register'
+            element={<Register />}
+          />
+          <Route
+            path='login'
+            element={<Login />}
+          />
+          <Route
+            path='todo'
+            element={
+              <RequireAuth>
+                <Todo />
+              </RequireAuth>
+            }
+          />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
