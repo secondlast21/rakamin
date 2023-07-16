@@ -11,18 +11,19 @@ export default function RequireAuth({ children }: RequireAuthProps) {
 
   useEffect(() => {
     const guestUrls = ['/login', '/register']
+    const currentPath = window.location.pathname
 
     if (getTokenFromCookies()) {
-      if (guestUrls.includes(window.location.pathname)) {
-        navigate('/todo')
+      if (currentPath === '/login' || currentPath === '/register') {
+        navigate('/dashboard')
       }
     } else {
-      if (!guestUrls.includes(window.location.pathname)) {
+      if (!guestUrls.includes(currentPath)) {
         navigate('/login')
       }
     }
 
-    if (!guestUrls.includes('/') && getTokenFromCookies()) {
+    if ((!guestUrls.includes('/login') || !guestUrls.includes('/register')) && getTokenFromCookies()) {
       navigate('/todo')
     }
   }, [window.location.pathname])
