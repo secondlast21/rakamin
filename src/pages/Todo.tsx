@@ -1,5 +1,11 @@
+import AddTodoModal from '../components/AddTodoModal'
+import Navbar from "../components/Navbar";
 const Todo = () => {
-  return <>Ini halaman todo</>
+  return (
+      <>
+        <Navbar />
+      </>
+  )
 }
 
 export default Todo

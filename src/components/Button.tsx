@@ -2,16 +2,16 @@ import React, { ButtonHTMLAttributes } from 'react'
 import { setButtonVariant } from '../utils/utils'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children?: JSX.Element | string
+  children?: JSX.Element | string | any
   iconWidth?: number
   className?: string
   imgClassName?: string
-  startIcon?: string
+  icon?: any
   variant?: 'primary' | 'neutral' | 'danger' | 'text'
 }
 
 const Button = (props: ButtonProps) => {
-  const { children, className, imgClassName, startIcon, variant = 'primary', iconWidth, ...rest } = props
+  const { children, className, imgClassName, icon, variant = 'primary', iconWidth, ...rest } = props
   const variantClass = setButtonVariant(variant)
 
   return (
@@ -19,10 +19,10 @@ const Button = (props: ButtonProps) => {
       {...rest}
       className={`h-fit py-1 px-4 text-center rounded-lg font-bold ${variantClass} ${className}`}
     >
-      <div className={startIcon ? 'flex items-center gap-2' : ''}>
-        {!!startIcon && (
+      <div className={icon ? 'flex items-center gap-2' : ''}>
+        {!!icon && (
           <img
-            src={startIcon}
+            src={icon}
             alt='icon'
             className={`inline-block ${imgClassName}`}
             width={iconWidth}
