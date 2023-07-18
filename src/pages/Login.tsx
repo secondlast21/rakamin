@@ -110,6 +110,8 @@ const Login: FC = () => {
                   render={({ field }) => (
                       <input
                           {...field}
+                          type='password'
+                          minLength={6}
                           placeholder='Your Password'
                           className={`w-full py-2 px-4 rounded-lg bg-white border-2 ${setColor(!!errors.password?.message)}`}
                       />

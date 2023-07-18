@@ -90,6 +90,7 @@ const Register = () => {
                   render={({ field }) => (
                       <input
                           {...field}
+                          type='text'
                           placeholder='Your Name'
                           className={`w-full py-2 px-4 rounded-lg bg-white border-2 ${setColor(!!errors.email?.message)}`}
                       />
@@ -110,6 +111,7 @@ const Register = () => {
                   render={({ field }) => (
                       <input
                           {...field}
+                          type='email'
                           placeholder='Your Email'
                           className={`w-full py-2 px-4 rounded-lg bg-white border-2 ${setColor(!!errors.email?.message)}`}
                       />
@@ -130,6 +132,8 @@ const Register = () => {
                   render={({ field }) => (
                       <input
                           {...field}
+                          type='password'
+                          minLength={6}
                           placeholder='Your Password'
                           className={`w-full py-2 px-4 rounded-lg bg-white border-2 ${setColor(!!errors.password?.message)}`}
                       />
@@ -150,6 +154,8 @@ const Register = () => {
                   render={({ field }) => (
                       <input
                           {...field}
+                          type='password'
+                          minLength={6}
                           placeholder='Your Password Again'
                           className={`w-full py-2 px-4 rounded-lg bg-white border-2 ${setColor(!!errors.password?.message)}`}
                       />
