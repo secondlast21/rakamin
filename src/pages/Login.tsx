@@ -1,3 +1,4 @@
+import React, { FC } from 'react'
 import PageLayout from '../layout/PageLayout'
 import CenterLayout from '../layout/CenterLayout'
 import { Controller, useForm } from 'react-hook-form'
@@ -13,7 +14,7 @@ import Button from '../components/Button'
 import { setColor } from '../utils/utils'
 import Alert from '../components/Alert'
 
-const Login = () => {
+const Login: FC = () => {
   const [error, setError] = useState('')
   const navigate = useNavigate()
 
@@ -86,7 +87,6 @@ const Login = () => {
               render={({ field }) => (
                 <input
                   {...field}
-                  autoComplete='on'
                   placeholder='Your Email'
                   className={`w-full py-2 px-4 rounded-lg bg-white border-2 ${setColor(!!errors.email?.message)}`}
                 />
@@ -107,7 +107,6 @@ const Login = () => {
               render={({ field }) => (
                 <input
                   {...field}
-                  autoComplete='on'
                   placeholder='Your Password'
                   className={`w-full py-2 px-4 rounded-lg bg-white border-2 ${setColor(!!errors.password?.message)}`}
                 />

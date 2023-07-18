@@ -87,7 +87,6 @@ const Register = () => {
               render={({ field }) => (
                 <input
                   {...field}
-                  autoComplete='on'
                   placeholder='Your Name'
                   className={`w-full py-2 px-4 rounded-lg bg-white border-2 ${setColor(!!errors.email?.message)}`}
                 />
@@ -108,7 +107,6 @@ const Register = () => {
               render={({ field }) => (
                 <input
                   {...field}
-                  autoComplete='on'
                   placeholder='Your Email'
                   className={`w-full py-2 px-4 rounded-lg bg-white border-2 ${setColor(!!errors.email?.message)}`}
                 />
@@ -129,7 +127,6 @@ const Register = () => {
               render={({ field }) => (
                 <input
                   {...field}
-                  autoComplete='on'
                   placeholder='Your Password'
                   className={`w-full py-2 px-4 rounded-lg bg-white border-2 ${setColor(!!errors.password?.message)}`}
                 />
@@ -150,7 +147,6 @@ const Register = () => {
               render={({ field }) => (
                 <input
                   {...field}
-                  autoComplete='on'
                   placeholder='Your Password Again'
                   className={`w-full py-2 px-4 rounded-lg bg-white border-2 ${setColor(!!errors.password?.message)}`}
                 />
