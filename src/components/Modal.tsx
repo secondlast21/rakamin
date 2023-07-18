@@ -8,7 +8,7 @@ const Modal: FC<ModalProps> = ({ onCloseModal, children }) => {
   return (
     <>
       <div
-        className='container flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 outline-none z-[100] focus:outline-none'
+          className='fixed inset-0 flex items-center justify-center overflow-x-hidden overflow-y-auto z-[100] outline-none focus:outline-none'
         onClick={onCloseModal}
       >
         <div
