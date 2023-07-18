@@ -30,23 +30,23 @@ const Navbar: FC = () => {
   return (
     <nav className='fixed w-full top-0 z-50 px-5 shadow'>
       <div className='flex justify-between items-center py-4'>
-          <Button
-              variant='primary'
-              className='border-2 border-primary-default hover:border-primary-dark'
-              onClick={isOpenModal}
-          >
-              <div className='flex items-center justify-around'>
-                  <PlusIcon className='w-6'/>
-                  <p>{`Add todo`}</p>
-              </div>
-          </Button>
-          <Button
-              variant='danger'
-              className='border-2 border-danger-default hover:border-danger-dark'
-              onClick={handleLogout}
-          >
-              Logout
-          </Button>
+        <Button
+          variant='primary'
+          className='border-2 border-primary-default hover:border-primary-dark'
+          onClick={isOpenModal}
+        >
+          <div className='flex items-center justify-around'>
+            <PlusIcon className='w-6' />
+            <p>{`Add todo`}</p>
+          </div>
+        </Button>
+        <Button
+          variant='danger'
+          className='border-2 border-danger-default hover:border-danger-dark'
+          onClick={handleLogout}
+        >
+          Logout
+        </Button>
       </div>
       {isShow && <AddTodoModal onCloseModal={isCloseModal} />}
     </nav>

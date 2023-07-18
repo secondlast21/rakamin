@@ -59,7 +59,7 @@ const AddTodoModal: FC<AddTodoProps> = ({ onCloseModal }) => {
             className='hover:bg-neutral-30'
             onClick={onCloseModal}
           >
-            <XMarkIcon className='w-8'/>
+            <XMarkIcon className='w-8' />
           </Button>
         </div>
         <div className='px-5 py-1 flex-auto relative'>
