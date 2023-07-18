@@ -6,7 +6,7 @@ import Button from './Button'
 import { useQuery } from 'react-query'
 import { Draggable, DraggableProvided, DraggableStateSnapshot } from 'react-beautiful-dnd'
 import { getItemsByIdService } from '../services/item-service'
-import {PlusCircleIcon} from "@heroicons/react/24/outline";
+import { PlusCircleIcon } from '@heroicons/react/24/outline'
 
 export interface TodoTypes {
   id: number
@@ -27,27 +27,16 @@ interface TodoCardProps {
 
 const TodoCard: FC<TodoCardProps> = ({ todo_id, title, color, description, isDraggingOver, placeholder }) => {
   const [currentId, setCurrentId] = useState(todo_id)
-  const [isShown, setIsShown] = useState(false)
-  const { data, isLoading } = useQuery(['items', todo_id], () => getItemsByIdService(todo_id))
-
-  const onOpenModal = () => {
-    setCurrentId(todo_id)
-    setIsShown(true)
-  }
-  const onCloseModal = () => {
-    setIsShown(false)
-  }
+  const { data } = useQuery(['items', todo_id], () => getItemsByIdService(todo_id))
 
   const { background, header } = setColorTodo(color)
 
   return (
     <div className={`h-fit p-4 border rounded-md w-[320px] ${background}`}>
-      {/* header */}
       <div>
         <h1 className={`border rounded-md py-1 px-3 w-fit text-sm ${header}`}>{title}</h1>
         <p className='text-neutral-90 mt-2 font-semibold text-sm'>{description}</p>
       </div>
-      {/* body */}
       <div className='mt-4'>
         {data?.length === 0 && (
           <div>
@@ -93,12 +82,10 @@ const TodoCard: FC<TodoCardProps> = ({ todo_id, title, color, description, isDra
       <Button
         variant='text'
         className='font-normal text-sm pl-0 mt-2'
-        onClick={onOpenModal}
       >
         <div className='flex items-center justify-between gap-1'>
-            <PlusCircleIcon className='w-5' /> <p>New task</p>
+          <PlusCircleIcon className='w-5' /> <p>New task</p>
         </div>
-
       </Button>
     </div>
   )

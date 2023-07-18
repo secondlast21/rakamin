@@ -1,7 +1,4 @@
-import React, { createContext, FC } from 'react'
-import { useState } from 'react'
-import { TodoTypes } from './TodoCard'
-import { useContext } from 'react'
+import React, { FC } from 'react'
 import { CheckCircleIcon } from '@heroicons/react/24/solid'
 
 interface ProgressBarProps {
@@ -12,10 +9,6 @@ interface ProgressBarProps {
 }
 
 const ProgressBar: FC<ProgressBarProps> = ({ id, name, todo_id, progress_percentage }) => {
-  const [index, setIndex] = useState(0)
-  const [isShown, setIsShown] = useState(false)
-  const TodoContext = createContext<Array<TodoTypes>>([])
-
   let progress = 0
   if (progress_percentage < 0) {
     progress = 0
@@ -26,8 +19,6 @@ const ProgressBar: FC<ProgressBarProps> = ({ id, name, todo_id, progress_percent
   }
 
   const progressColor = progress === 100 ? 'bg-success-default' : 'bg-primary-default'
-
-  const todoData = useContext(TodoContext)
 
   return (
     <div className='flex items-center gap-2'>

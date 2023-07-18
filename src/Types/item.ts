@@ -1,5 +1,3 @@
-import api from '../services/api'
-
 export interface CreateItemTypes {
   todo_id: number
   name: string
