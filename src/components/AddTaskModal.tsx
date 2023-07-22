@@ -33,7 +33,7 @@ const deleteChar = (input: string, char: string) => {
 }
 
 const AddTaskModal: FC<AddTaskModalProps> = ({
-  isEdit= false,
+  isEdit = false,
   todo_id,
   id = 0,
   name,

@@ -1,4 +1,4 @@
-import React, { FC, useState, createContext, useContext } from 'react'
+import React, { FC, useState } from 'react'
 import TaskCard from './TaskCard'
 import ProgressBar from './ProgressBar'
 import { setColorTodo } from '../utils/utils'
@@ -93,7 +93,10 @@ const TodoCard: FC<TodoCardProps> = ({ todo_id, title, color, description, isDra
         variant='text'
         className='font-normal text-sm pl-0 mt-2'
       >
-        <div className='flex items-center justify-between gap-1' onClick={onOpenAddTask}>
+        <div
+          className='flex items-center justify-between gap-1'
+          onClick={onOpenAddTask}
+        >
           <PlusCircleIcon className='w-5' /> <p>New task</p>
         </div>
       </Button>

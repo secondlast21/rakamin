@@ -49,3 +49,11 @@ export function setColorTodo(color: string | undefined): any {
       }
   }
 }
+
+export const getProperty = (data: any, attribute: string, currentIdx: number, key: string): any => {
+  if (!data || currentIdx > data.length - 1 || currentIdx < 0) return -1
+  if ((currentIdx === 0 && key === 'prev') || (currentIdx === data.length - 1 && key === 'next')) return -1
+  if (data.length > 0 && key === 'prev') return data[currentIdx - 1][attribute]
+  if (data.length > 0 && key === 'next') return data[currentIdx + 1][attribute]
+  return -1
+}
