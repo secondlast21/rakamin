@@ -4,13 +4,16 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { HelmetProvider } from 'react-helmet-async'
 
 const queryClient = new QueryClient()
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <QueryClientProvider client={queryClient}>
-    <App />
+    <HelmetProvider>
+        <App />
+    </HelmetProvider>
   </QueryClientProvider>
 )
 

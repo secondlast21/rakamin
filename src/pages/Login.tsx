@@ -57,7 +57,7 @@ const Login: FC = () => {
 
   return (
     <PageLayout
-      title='Login'
+      title='Login Page'
       description='Login Page'
     >
       <CenterLayout>

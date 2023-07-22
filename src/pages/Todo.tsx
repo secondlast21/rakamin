@@ -52,7 +52,7 @@ const Todo: FC = () => {
 
   return (
     <PageLayout
-      title='Todo'
+      title='Todo Page'
       description='Todo Page'
     >
       <Navbar />

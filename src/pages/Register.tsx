@@ -57,7 +57,7 @@ const Register = () => {
 
   return (
     <PageLayout
-      title='Register'
+      title='Register Page'
       description='Register Page'
     >
       <CenterLayout>
