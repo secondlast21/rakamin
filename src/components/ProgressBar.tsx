@@ -1,6 +1,6 @@
-import React, { createContext, FC, useContext, useState } from 'react'
+import React, { FC, useContext, useState } from 'react'
 import { CheckCircleIcon } from '@heroicons/react/24/solid'
-import { TodoTypes } from './TodoCard'
+import {TodoContext} from "../context/TodoContext";
 import Button from './Button'
 import { EllipsisHorizontalIcon } from '@heroicons/react/20/solid'
 import Dropmenu from "./Dropmenu";
@@ -12,8 +12,6 @@ interface ProgressBarProps {
   todo_id: number
   progress_percentage: number
 }
-
-export const TodoContext = createContext<Array<TodoTypes>>([])
 
 const ProgressBar: FC<ProgressBarProps> = ({ id, name, todo_id, progress_percentage }) => {
   let progress = 0
@@ -32,6 +30,7 @@ const ProgressBar: FC<ProgressBarProps> = ({ id, name, todo_id, progress_percent
   const onShown = () => {
     setIsShown(true)
     const index = todoData?.findIndex((todo: any) => todo.id === todo_id)
+    console.log('Tes', todoData)
     setCurrentIndex(index ? index : 0)
   }
   const onClose = () => {

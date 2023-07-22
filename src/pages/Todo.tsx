@@ -5,8 +5,8 @@ import CenterLayout from '../layout/CenterLayout'
 import { useMutation, useQuery, useQueryClient } from 'react-query'
 import { getTodoService } from '../services/todo-service'
 import { DragDropContext, Droppable, DroppableProvided, DroppableStateSnapshot, DropResult } from 'react-beautiful-dnd'
-import TodoCard, { TodoTypes } from '../components/TodoCard'
-import { createContext } from 'react'
+import TodoCard from '../components/card/TodoCard'
+import {TodoContext} from "../context/TodoContext";
 import { getItemsByIdService, updateItemsByIdService } from '../services/item-service'
 
 const Todo: FC = () => {
@@ -16,7 +16,6 @@ const Todo: FC = () => {
   const queryClient = useQueryClient()
   const { data } = useQuery<any>('todos', getTodoService)
   const todoData = data ?? []
-  const TodoContext = createContext<Array<TodoTypes>>([])
 
   const getTask = useMutation(getItemsByIdService)
   const updateTask = useMutation(updateItemsByIdService)

@@ -1,15 +1,15 @@
 import React, { FC } from 'react'
 import { useState } from 'react'
 import { useMutation, useQueryClient } from 'react-query'
-import { createItemsByIdService, updateItemsByIdService } from '../services/item-service'
+import { createItemsByIdService, updateItemsByIdService } from '../../services/item-service'
 import Joi from 'joi'
 import { Controller, useForm } from 'react-hook-form'
 import { joiResolver } from '@hookform/resolvers/joi'
-import { CreateEditItemTypes } from '../types/item'
-import Modal from './Modal'
+import {CreateEditItemTypes} from "../../types/item";
+import Modal from "./Modal";
 import { XMarkIcon } from '@heroicons/react/20/solid'
-import Button from './Button'
-import { setColor } from '../utils/utils'
+import Button from "../Button";
+import {setColor} from "../../utils/utils";
 
 interface AddTaskModalProps {
   isEdit?: boolean

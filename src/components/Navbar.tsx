@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { useState } from 'react'
 import Button from './Button'
 import { PlusIcon } from '@heroicons/react/20/solid'
-import AddTodoModal from './AddTodoModal'
+import AddTodoModal from "./modal/AddTodoModal";
 import { removeTokenFromCookies } from '../utils/tokenManager'
 import { useNavigate } from 'react-router-dom'
 

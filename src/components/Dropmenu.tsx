@@ -3,10 +3,10 @@ import { ArrowLongRightIcon, ArrowLongLeftIcon, PencilSquareIcon, TrashIcon } fr
 import Button from './Button'
 import { useMutation, useQueryClient } from 'react-query'
 import { updateItemsByIdService, deleteItemsByIdService } from '../services/item-service'
-import AddTaskModal from './AddTaskModal'
-import { TodoContext } from './ProgressBar'
+import AddTaskModal from "./modal/AddTaskModal";
+import {TodoContext} from "../context/TodoContext";
 import {getProperty} from "../utils/utils";
-import DeleteModal from "./DeleteModal";
+import DeleteModal from "./modal/DeleteModal";
 
 interface DropmenuProps {
   todo_id: number
@@ -86,32 +86,28 @@ const Dropmenu: FC<DropmenuProps> = ({ todo_id, id, currentIndex, name, progress
               tabIndex={-1}
           >
               <div className='py-2' role='none'>
-                  {
-                      currentIndex !== todoData?.length - 1 && (
-                          <Button
-                              variant='text'
-                              className='font-semibold w-full py-3 hover:text-primary flex items-center gap-2'
-                              imgClassName='mr-3'
-                              onClick={() => onMove('next')}
-                          >
-                              <ArrowLongRightIcon className='w-6'/>
-                              Move Right
-                          </Button>
-                      )
-                  }
-                  {
-                      currentIndex !== 0 && (
-                          <Button
-                              variant='text'
-                              className='font-semibold w-full py-3 hover:text-primary flex items-center gap-2'
-                              imgClassName='mr-3'
-                              onClick={() => onMove('prev')}
-                          >
-                              <ArrowLongLeftIcon className='w-6' />
-                              <p>Move Left</p>
-                          </Button>
-                      )
-                  }
+                  {currentIndex !== todoData?.length - 1 && (
+                      <Button
+                          variant='text'
+                          className='font-semibold w-full py-3 hover:text-primary flex items-center gap-2'
+                          imgClassName='mr-3'
+                          onClick={() => onMove('next')}
+                      >
+                          <ArrowLongRightIcon className='w-6' />
+                          Move Right
+                      </Button>
+                  )}
+                  {currentIndex !== 0 && (
+                      <Button
+                          variant='text'
+                          className='font-semibold w-full py-3 hover:text-primary flex items-center gap-2'
+                          imgClassName='mr-3'
+                          onClick={() => onMove('prev')}
+                      >
+                          <ArrowLongLeftIcon className='w-6' />
+                          <p>Move Left</p>
+                      </Button>
+                  )}
                   <Button
                       variant='text'
                       className='font-semibold w-full py-3 hover:text-primary flex items-center gap-2'

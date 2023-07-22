@@ -1,13 +1,13 @@
 import React, { FC, useState } from 'react'
 import TaskCard from './TaskCard'
-import ProgressBar from './ProgressBar'
-import { setColorTodo } from '../utils/utils'
-import Button from './Button'
+import ProgressBar from '../ProgressBar'
+import { setColorTodo } from '../../utils/utils'
+import Button from '../Button'
 import { useQuery } from 'react-query'
 import { Draggable, DraggableProvided, DraggableStateSnapshot } from 'react-beautiful-dnd'
-import { getItemsByIdService } from '../services/item-service'
+import { getItemsByIdService } from '../../services/item-service'
 import { PlusCircleIcon } from '@heroicons/react/24/outline'
-import AddTaskModal from './AddTaskModal'
+import AddTaskModal from "../modal/AddTaskModal";
 
 export interface TodoTypes {
   id: number
