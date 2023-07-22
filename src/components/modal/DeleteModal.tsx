@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import Button from "../Button";
+import Button from '../Button'
 import { XMarkIcon, ExclamationTriangleIcon } from '@heroicons/react/20/solid'
 import Modal from './Modal'
 

@@ -6,7 +6,7 @@ import { useMutation, useQuery, useQueryClient } from 'react-query'
 import { getTodoService } from '../services/todo-service'
 import { DragDropContext, Droppable, DroppableProvided, DroppableStateSnapshot, DropResult } from 'react-beautiful-dnd'
 import TodoCard from '../components/card/TodoCard'
-import {TodoContext} from "../context/TodoContext";
+import { TodoContext } from '../context/TodoContext'
 import { getItemsByIdService, updateItemsByIdService } from '../services/item-service'
 
 const Todo: FC = () => {

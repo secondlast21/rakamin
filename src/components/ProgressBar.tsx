@@ -1,10 +1,10 @@
 import React, { FC, useContext, useState } from 'react'
 import { CheckCircleIcon } from '@heroicons/react/24/solid'
-import {TodoContext} from "../context/TodoContext";
+import { TodoContext } from '../context/TodoContext'
 import Button from './Button'
 import { EllipsisHorizontalIcon } from '@heroicons/react/20/solid'
-import Dropmenu from "./Dropmenu";
-import WrapperLayout from "../layout/WrapperLayout";
+import Dropmenu from './Dropmenu'
+import WrapperLayout from '../layout/WrapperLayout'
 
 interface ProgressBarProps {
   id: number
@@ -57,20 +57,18 @@ const ProgressBar: FC<ProgressBarProps> = ({ id, name, todo_id, progress_percent
         >
           <EllipsisHorizontalIcon className='w-6' />
         </Button>
-        {
-          isShown && (
-              <WrapperLayout callback={onClose}>
-                <Dropmenu
-                    currentIndex={currentIndex}
-                    todo_id={todo_id}
-                    id={id}
-                    name={name}
-                    progress_percentage={progress}
-                    onClose={onClose}
-                />
-              </WrapperLayout>
-            )
-        }
+        {isShown && (
+          <WrapperLayout callback={onClose}>
+            <Dropmenu
+              currentIndex={currentIndex}
+              todo_id={todo_id}
+              id={id}
+              name={name}
+              progress_percentage={progress}
+              onClose={onClose}
+            />
+          </WrapperLayout>
+        )}
       </div>
     </div>
   )
