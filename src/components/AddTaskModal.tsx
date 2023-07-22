@@ -196,23 +196,41 @@ const AddTaskModal: FC<AddTaskModalProps> = ({
             Cancel
           </Button>
           {isEdit ? (
-            !updateItem.isLoading
+              // Conditionally render the Save button for editing
+              !updateItem.isLoading ? (
+                  <Button
+                      type='submit'
+                      variant='primary'
+                      className='border-2 border-primary-default hover:border-primary-dark'
+                  >
+                    Submit
+                  </Button>
+              ) : (
+                  <Button
+                      disabled
+                      variant='primary'
+                      className='border-2 border-primary-default hover:border-primary-dark'
+                  >
+                    Please wait
+                  </Button>
+              )
           ) : !createItem.isLoading ? (
-            <Button
-              type='submit'
-              variant='primary'
-              className='border-2 border-primary-default hover:border-primary-dark'
-            >
-              Submit
-            </Button>
+              // Render the Save button for adding
+              <Button
+                  type='submit'
+                  variant='primary'
+                  className='border-2 border-primary-default hover:border-primary-dark'
+              >
+                Submit
+              </Button>
           ) : (
-            <Button
-              disabled
-              variant='primary'
-              className='border-2 border-primary-default hover:border-primary-dark'
-            >
-              Please wait
-            </Button>
+              <Button
+                  disabled
+                  variant='primary'
+                  className='border-2 border-primary-default hover:border-primary-dark'
+              >
+                Please wait
+              </Button>
           )}
         </div>
       </form>
