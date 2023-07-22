@@ -7,6 +7,7 @@ import { useQuery } from 'react-query'
 import { Draggable, DraggableProvided, DraggableStateSnapshot } from 'react-beautiful-dnd'
 import { getItemsByIdService } from '../services/item-service'
 import { PlusCircleIcon } from '@heroicons/react/24/outline'
+import AddTaskModal from './AddTaskModal'
 
 export interface TodoTypes {
   id: number
@@ -27,9 +28,18 @@ interface TodoCardProps {
 
 const TodoCard: FC<TodoCardProps> = ({ todo_id, title, color, description, isDraggingOver, placeholder }) => {
   const [currentId, setCurrentId] = useState(todo_id)
-  const { data } = useQuery(['items', todo_id], () => getItemsByIdService(todo_id))
+  const [isShown, setIsShown] = useState(false)
+  const { data, isLoading } = useQuery(['items', todo_id], () => getItemsByIdService(todo_id))
 
   const { background, header } = setColorTodo(color)
+
+  const onOpenAddTask = () => {
+    setCurrentId(todo_id)
+    setIsShown(true)
+  }
+  const onCloseAddTask = () => {
+    setIsShown(false)
+  }
 
   return (
     <div className={`h-fit p-4 border rounded-md w-[320px] ${background}`}>
@@ -83,10 +93,17 @@ const TodoCard: FC<TodoCardProps> = ({ todo_id, title, color, description, isDra
         variant='text'
         className='font-normal text-sm pl-0 mt-2'
       >
-        <div className='flex items-center justify-between gap-1'>
+        <div className='flex items-center justify-between gap-1' onClick={onOpenAddTask}>
           <PlusCircleIcon className='w-5' /> <p>New task</p>
         </div>
       </Button>
+
+      {isShown && (
+        <AddTaskModal
+          todo_id={currentId}
+          onCloseAddTask={onCloseAddTask}
+        />
+      )}
     </div>
   )
 }

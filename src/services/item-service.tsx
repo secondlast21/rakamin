@@ -1,5 +1,5 @@
 import api from './api'
-import { CreateItemTypes, UpdateItemTypes, DeleteItemTypes } from '../Types/item'
+import { CreateItemTypes, UpdateItemTypes, DeleteItemTypes } from '../types/item'
 export const getItemsByIdService = async (todo_id: number): Promise<any> => await api.get(`/todos/${todo_id}/items`)
 export const createItemsByIdService = async (data: CreateItemTypes): Promise<any> => {
   const { todo_id, ...body } = data

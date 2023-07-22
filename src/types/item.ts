@@ -14,3 +14,8 @@ export interface UpdateItemTypes extends DeleteItemTypes {
   name: string
   progress_percentage: number
 }
+
+export interface CreateEditItemTypes {
+  name: string
+  progress_percentage: string
+}

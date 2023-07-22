@@ -8,7 +8,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useMutation } from 'react-query'
 import { loginService } from '../services/auth-service'
-import { LoginTypes } from '../Types/auth'
+import { LoginTypes } from '../types/auth'
 import { setTokenToCookies } from '../utils/tokenManager'
 import Button from '../components/Button'
 import { setColor } from '../utils/utils'
@@ -67,81 +67,81 @@ const Login: FC = () => {
         </div>
         <div>
           {isError && (
-              <Alert
-                  message={error}
-                  variant='danger'
-                  className='mb-4'
-              />
+            <Alert
+              message={error}
+              variant='danger'
+              className='mb-4'
+            />
           )}
           <form
-              autoComplete='off'
-              onSubmit={handleSubmit(onSubmit)}
+            autoComplete='off'
+            onSubmit={handleSubmit(onSubmit)}
           >
             <div className='mb-4'>
               <label
-                  htmlFor='name'
-                  className='w-full block text-neutral-90 mb-2'
+                htmlFor='name'
+                className='w-full block text-neutral-90 mb-2'
               >
                 Email
               </label>
               <Controller
-                  name='email'
-                  control={control}
-                  render={({ field }) => (
-                      <input
-                          {...field}
-                          placeholder='Your Email'
-                          className={`w-full py-2 px-4 rounded-lg bg-white border-2 ${setColor(!!errors.email?.message)}`}
-                      />
-                  )}
+                name='email'
+                control={control}
+                render={({ field }) => (
+                  <input
+                    {...field}
+                    placeholder='Your Email'
+                    className={`w-full py-2 px-4 rounded-lg bg-white border-2 ${setColor(!!errors.email?.message)}`}
+                  />
+                )}
               />
               {!!errors.email?.message && <p className='text-danger mt-1'>{errors.email.message}</p>}
             </div>
             <div>
               <label
-                  htmlFor='name'
-                  className='w-full block text-neutral-90 mb-2'
+                htmlFor='name'
+                className='w-full block text-neutral-90 mb-2'
               >
                 Password
               </label>
               <Controller
-                  name='password'
-                  control={control}
-                  render={({ field }) => (
-                      <input
-                          {...field}
-                          type='password'
-                          minLength={6}
-                          placeholder='Your Password'
-                          className={`w-full py-2 px-4 rounded-lg bg-white border-2 ${setColor(!!errors.password?.message)}`}
-                      />
-                  )}
+                name='password'
+                control={control}
+                render={({ field }) => (
+                  <input
+                    {...field}
+                    type='password'
+                    minLength={6}
+                    placeholder='Your Password'
+                    className={`w-full py-2 px-4 rounded-lg bg-white border-2 ${setColor(!!errors.password?.message)}`}
+                  />
+                )}
               />
               {!!errors.password?.message && <p className='text-danger mt-1'>{errors.password.message}</p>}
             </div>
             {!isLoading ? (
-                <Button
-                    type='submit'
-                    variant='primary'
-                    className='w-full mt-8'
-                >
-                  Login
-                </Button>
+              <Button
+                type='submit'
+                variant='primary'
+                className='w-full mt-8'
+              >
+                Login
+              </Button>
             ) : (
-                <Button
-                    disabled
-                    variant='primary'
-                    className='w-full mt-8'
-                >
-                  Please wait
-                </Button>
+              <Button
+                disabled
+                variant='primary'
+                className='w-full mt-8'
+              >
+                Please wait
+              </Button>
             )}
           </form>
           <div className='flex justify-center gap-1 mt-2'>
             <p className='text-neutral-90'>Don't have an account?</p>
             <Link
-                to='/register'
-                className='text-primary-default font-semibold'
+              to='/register'
+              className='text-primary-default font-semibold'
             >
               Register
             </Link>

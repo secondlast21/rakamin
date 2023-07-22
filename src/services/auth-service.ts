@@ -1,4 +1,4 @@
-import { LoginTypes, RegisterTypes } from '../Types/auth'
+import { LoginTypes, RegisterTypes } from '../types/auth'
 import api from './api'
 
 export const loginService = async (body: LoginTypes): Promise<any> => await api.post('/auth/login', body)

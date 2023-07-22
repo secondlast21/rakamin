@@ -6,7 +6,7 @@ import { joiResolver } from '@hookform/resolvers/joi'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useMutation } from 'react-query'
-import { RegisterTypes } from '../Types/auth'
+import { RegisterTypes } from '../types/auth'
 import { registerService } from '../services/auth-service'
 import Button from '../components/Button'
 import { setColor } from '../utils/utils'
@@ -67,127 +67,127 @@ const Register = () => {
         </div>
         <div>
           {isError && (
-              <Alert
-                  message={error}
-                  variant='danger'
-                  className='mb-4'
-              />
+            <Alert
+              message={error}
+              variant='danger'
+              className='mb-4'
+            />
           )}
           <form
-              autoComplete='off'
-              onSubmit={handleSubmit(onSubmit)}
+            autoComplete='off'
+            onSubmit={handleSubmit(onSubmit)}
           >
             <div className='mb-4'>
               <label
-                  htmlFor='name'
-                  className='w-full block text-neutral-90 mb-2'
+                htmlFor='name'
+                className='w-full block text-neutral-90 mb-2'
               >
                 Name
               </label>
               <Controller
-                  name='name'
-                  control={control}
-                  render={({ field }) => (
-                      <input
-                          {...field}
-                          type='text'
-                          placeholder='Your Name'
-                          className={`w-full py-2 px-4 rounded-lg bg-white border-2 ${setColor(!!errors.email?.message)}`}
-                      />
-                  )}
+                name='name'
+                control={control}
+                render={({ field }) => (
+                  <input
+                    {...field}
+                    type='text'
+                    placeholder='Your Name'
+                    className={`w-full py-2 px-4 rounded-lg bg-white border-2 ${setColor(!!errors.email?.message)}`}
+                  />
+                )}
               />
               {!!errors.name?.message && <p className='text-danger mt-1'>{errors.name.message}</p>}
             </div>
             <div className='mb-4'>
               <label
-                  htmlFor='name'
-                  className='w-full block text-neutral-90 mb-2'
+                htmlFor='name'
+                className='w-full block text-neutral-90 mb-2'
               >
                 Email
               </label>
               <Controller
-                  name='email'
-                  control={control}
-                  render={({ field }) => (
-                      <input
-                          {...field}
-                          type='email'
-                          placeholder='Your Email'
-                          className={`w-full py-2 px-4 rounded-lg bg-white border-2 ${setColor(!!errors.email?.message)}`}
-                      />
-                  )}
+                name='email'
+                control={control}
+                render={({ field }) => (
+                  <input
+                    {...field}
+                    type='email'
+                    placeholder='Your Email'
+                    className={`w-full py-2 px-4 rounded-lg bg-white border-2 ${setColor(!!errors.email?.message)}`}
+                  />
+                )}
               />
               {!!errors.email?.message && <p className='text-danger mt-1'>{errors.email.message}</p>}
             </div>
             <div className='mb-4'>
               <label
-                  htmlFor='name'
-                  className='w-full block text-neutral-90 mb-2'
+                htmlFor='name'
+                className='w-full block text-neutral-90 mb-2'
               >
                 Password
               </label>
               <Controller
-                  name='password'
-                  control={control}
-                  render={({ field }) => (
-                      <input
-                          {...field}
-                          type='password'
-                          minLength={6}
-                          placeholder='Your Password'
-                          className={`w-full py-2 px-4 rounded-lg bg-white border-2 ${setColor(!!errors.password?.message)}`}
-                      />
-                  )}
+                name='password'
+                control={control}
+                render={({ field }) => (
+                  <input
+                    {...field}
+                    type='password'
+                    minLength={6}
+                    placeholder='Your Password'
+                    className={`w-full py-2 px-4 rounded-lg bg-white border-2 ${setColor(!!errors.password?.message)}`}
+                  />
+                )}
               />
               {!!errors.password?.message && <p className='text-danger mt-1'>{errors.password.message}</p>}
             </div>
             <div>
               <label
-                  htmlFor='name'
-                  className='w-full block text-neutral-90 mb-2'
+                htmlFor='name'
+                className='w-full block text-neutral-90 mb-2'
               >
                 Password Confirmation
               </label>
               <Controller
-                  name='password_confirmation'
-                  control={control}
-                  render={({ field }) => (
-                      <input
-                          {...field}
-                          type='password'
-                          minLength={6}
-                          placeholder='Your Password Again'
-                          className={`w-full py-2 px-4 rounded-lg bg-white border-2 ${setColor(!!errors.password?.message)}`}
-                      />
-                  )}
+                name='password_confirmation'
+                control={control}
+                render={({ field }) => (
+                  <input
+                    {...field}
+                    type='password'
+                    minLength={6}
+                    placeholder='Your Password Again'
+                    className={`w-full py-2 px-4 rounded-lg bg-white border-2 ${setColor(!!errors.password?.message)}`}
+                  />
+                )}
               />
               {!!errors.password_confirmation?.message && (
-                  <p className='text-danger mt-1'>{errors.password_confirmation.message}</p>
+                <p className='text-danger mt-1'>{errors.password_confirmation.message}</p>
               )}
             </div>
             {!isLoading ? (
-                <Button
-                    type='submit'
-                    variant='primary'
-                    className='w-full mt-8'
-                >
-                  Login
-                </Button>
+              <Button
+                type='submit'
+                variant='primary'
+                className='w-full mt-8'
+              >
+                Login
+              </Button>
             ) : (
-                <Button
-                    disabled
-                    variant='primary'
-                    className='w-full mt-8'
-                >
-                  Please wait
-                </Button>
+              <Button
+                disabled
+                variant='primary'
+                className='w-full mt-8'
+              >
+                Please wait
+              </Button>
             )}
           </form>
           <div className='flex justify-center gap-1 mt-2'>
             <p className='text-neutral-90'>Already have an account?</p>
             <Link
-                to='/login'
-                className='text-primary-default font-semibold'
+              to='/login'
+              className='text-primary-default font-semibold'
             >
               Login
             </Link>
